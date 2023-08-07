@@ -1,0 +1,120 @@
+{{extend 'layout.html'}}
+{{include 'styles/room_checklist_style.html'}}
+
+<style>
+  .trans-top {
+      animation: slideInFromTop 1.2s ease-out;
+    }
+    
+    @keyframes slideInFromTop {
+      0% {
+        transform: translatey(100%);
+      }
+      100% {
+        transform: translatey(0);
+      }
+    }
+</style>
+
+<div class="container trans-top">
+  
+  <ul class="style-ul-container list-group">
+    <h3 class="style-roomnum">Company Branch</h3>
+    {{sample= dict({'Entrance': ['item1', 'item2', 'item3'],
+    'Hallway': ['item1', 'item2', 'item3'],
+    'Table Title': ['item1', 'item2', 'item3']})}}
+    <span></span>
+    {{for key,value in sample.items():}}
+    <li class="justify-content-center align-items-center style-item-header-box style-item-box list-group-item list-group-item-info">
+      {{=key}}
+    </li>
+    {{for item_ in value:}}
+    <li class="style-item-box list-group-item list-group-item-info style-item-box">
+      <div div class="style-item-checkbox">
+        <input type="checkbox" />
+        <p>{{=item_}}</p>
+      </div>
+    </li>
+    {{pass}}
+    <span class="margin-top-tables"></span>
+    {{pass}}
+
+    <h3 class="style-roomnum">Company Rooms</h3>
+
+    {{sample= dict({'Room 1': ['item1', 'item2'], 'Room 2': ['item1', 'item2'],
+    'Room 3': ['item1', 'item2', 'item3']})}}
+    <span></span>
+    {{for key,value in sample.items():}}
+    <li class="justify-content-center align-items-center style-item-header-box style-item-box list-group-item list-group-item-info">
+      {{=key}}
+    </li>
+    {{for item_ in value:}}
+    <li class="style-item-box list-group-item list-group-item-info style-item-box">
+      <div div class="style-item-checkbox">
+        <input type="checkbox" />
+        <p>{{=item_}}</p>
+
+        <button
+          type="button"
+          class="btn btn-link text-dark"
+          data-toggle="modal"
+          data-target="#exampleModalLongAmenities"
+        >
+          <h4>...</h4>
+        </button>
+      </div>
+    </li>
+    {{pass}}
+    <span class="margin-top-tables"></span>
+    {{pass}}
+    <li
+      class="list-group-item note"
+      style="background-color: rgb(255, 255, 255); color: gray"
+    >
+      NOTE: <br />Please provide comment and its severity before submitting.
+    </li>
+    <div class="style-btn-container">
+      <button type="button" class="btn btn-success style-btn">Submit</button>
+    </div>
+  </ul>
+  {{include 'checklist/pop_up_room_checklist.html'}}
+
+  <div class="fixed-bottom style-btn-comment-container">
+    <button class="style-btn-comment" onclick="myFunction()">Comment</button>
+  </div>
+  <div id="myDIV" class="fixed-bottom mb-5 container" style="display: none">
+    <form>
+      <div class="form-group">
+        <div class="container">
+          <label for="position" class="style-dropdown"
+            >Select Severity:
+            <select name="position" class="style-input" id="pos">
+              <option value="severity-1">Severity 1</option>
+              <option value="severity-2">Severity 2</option>
+              <option value="severity-3">Severity 3</option>
+            </select></label
+          >
+        </div>
+        <textarea
+          class="form-control style-comment-box mb-4"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          style="height: 200px; resize: none"
+          placeholder="Enter comment here..."
+          required
+        ></textarea>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
+</div>

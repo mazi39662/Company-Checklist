@@ -1,0 +1,46 @@
+{{extend 'layout.html'}}
+{{include 'styles/reminders_style.html'}}
+
+<style>
+  .trans-top {
+      animation: slideInFromTop 1.2s ease-out;
+    }
+    
+    @keyframes slideInFromTop {
+      0% {
+        transform: translatey(100%);
+      }
+      100% {
+        transform: translatey(0);
+      }
+    }
+</style>
+
+<div class="container trans-top">
+<ul class="style-ul-container list-group">
+  
+  {{sample= dict({'GOVERNMENT CONFIDENTIAL': ['1. COR 2023', '2. 0605', '3. ASK FOR RECEIPT', '4. COLUMNAR BOOKS, UPDATED ', '5. SALES INVOICE, UPDATED', '6. CASHIER REMIND IF THERE IS TAX MAPPING, BIR, CITY HALL OR MUNICIPALITY STAFF FOR INSPECTION  ONLY BIR COLUMNAR AND SALES INVOICE PRESENT TO THEM', '7. NEVER TELL THE SALES AND IF THEY ASK ONLY TELL THEM THAT SALES FROM TIME TO TIME OUR INSPECTOR COLLECT IT SEND AND DEPOSIT DIRECT TO THE BANK.', '8. IF YOU NOTICE THEY ARE GOVERNMENT STAFF (BIR, TAX MAP AND CITY HALL STAFF) AUTOMATIC HIDE IMMIDIATELY ALL DAILY MANUAL SALES REPORT', '9. IMPORTANT AND CONFIDENTIAL. DONT TELL THE AMOUNT OR FIGURE OUR DAILY SALES.'],
+  'FOR MARKETING STRATEGY':['1. EVERYDAY POSTING SOCIAL MEDIA (FB PAGE, INSTAGRAM, TIKTOK ETC.)', '2. IPA SHARE TANAN BRANCH POSTING SA FB', '3.TANAN GUEST HANGYOON IPA FOLLOW ATONG PAGE OR E ADD FRIEND', '4. ATIMANON ANG PROMOTION'], 
+  })}}
+  <span></span>
+  {{for key,value in sample.items():}}
+  <li
+    class="justify-content-center align-items-center style-item-header-box style-item-box list-group-item"
+  >
+    {{=key}}
+  </li>
+  {{for item_ in value:}}
+  <li
+    class="style-item-box list-group-item"
+  >
+    <div class="style-item-checkbox">
+      <p>{{=item_}}</p>
+    </div>
+  </li>
+  {{pass}}
+  <br />
+  {{pass}}
+
+  <span></span>
+</ul>
+</div>

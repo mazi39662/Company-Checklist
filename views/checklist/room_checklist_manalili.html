@@ -1,0 +1,179 @@
+{{extend 'layout.html'}}
+{{include 'styles/room_checklist_style.html'}}
+{{include 'styles/rooms_style.html'}}
+
+<div class="container hide-on-mobile triangle">
+  <h3 class="style-header">WJV Inn Branches</h3>
+  <div class="container-fluid style-btn-container">
+    <br />
+    <div class="container-style">
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_bankal')}}"
+          >BANKAL</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_basak')}}"
+          >BASAK</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_canduman')}}"
+          >CANDUMAN</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_casuntingan')}}"
+          >CASUNTINGAN</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_carcar')}}"
+          >CARCAR</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_consolacion')}}"
+          >CONSOLACION</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_cordova')}}"
+          >CORDOVA</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_humay2x')}}"
+          >HUMAY2X</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_liloan')}}"
+          >LILOAN</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_marigondon')}}"
+          >MARIGONDON</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_manalili')}}"
+          >MANALILI</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_naga')}}"
+          >NAGA</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_pusok')}}"
+          >PUSOK</a>
+        <a
+          class="btn style-btn"
+          href="{{=URL('checklist', 'room_checklist_ramos')}}"
+          >RAMOS</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <form> 
+  <ul class="style-ul-container list-group">
+    <h3 class="style-roomnum">Manalili Branch</h3>
+    {{sample= dict({'ENTRANCE AREA': [' 1. UPON ENTER THE ENTRANCE CHECK THE SIGNAGE, LIGHTS STATUS  SORROUNDINGS STATUS IF THERE IS DEFFECT COMMUNICATE MAINTENANCE.', '2. WATERING GARDEN', '3. CHECK THE GARDEN BOX PAINT', '4. CUT OR REMOVE DRY LEAVES (FALLING DRY LEAVES)', '5. NO GARBAGE & EXISTING MATERIAL FOR CONSTRUCTION'],
+    'LOBBY/COUNTER AREA': ['1. MOP AND SWEEP HOTEL LOBBY FLOOR', '2. VACCUM LOBBY MATS AND RUGS ', '3. KEEP FURNITURE CLEAN GLASS AND WALLS', '4. REGULARLY CLEAN REST ROOMS', '5. KEEP TRASH BINS EMPTY', '6. SPRAY AND WIPE THE COUNTER RANGE TOP', '7. REMOVE OR WIPE CABLE, WIRE, KEYBOARD, MOUSE.', '8. CHECK AND OBSERVE EMPLOYEE CUSTOMER SERVICE /GREETINGS'],
+    'HALLWAY': ['1. MOP AND SWEEP ON THE  FLOOR TILES', '2. CLEAN AND WIPE THE WALLS, DOORS, DOOR KNOB, SWITCHES AND LGHTS', '3. CLEAN MIRRORS, RUGS.', '4.  BEFORE USING THE MOP MAKE SURE IT IS CLEAN AND SMELLS GOOD.']})}}
+    <span></span>
+    {{for key,value in sample.items():}}
+    <li class="justify-content-center align-items-center style-item-header-box style-item-box list-group-item list-group-item-info">
+      {{=key}}
+    </li>
+    {{for item_ in value:}}
+    <li class="style-item-box list-group-item list-group-item-info style-item-box">
+      <div div class="style-item-checkbox">
+        <input type="checkbox" />
+        <p>{{=item_}}</p>
+      </div>
+    </li>
+    {{pass}}
+    <span class="margin-top-tables"></span>
+    {{pass}}
+
+    <h3 class="style-roomnum">Rooms</h3>
+
+    {{sample= dict({'Room 1': ['Amenities', 'Bathroom', 'Air-Conditioning', 'Lightings'],
+    'Room 2': ['Amenities', 'Bathroom', 'Air-Conditioning', 'Lightings'],
+    'Room 3': ['Amenities', 'Bathroom', 'Air-Conditioning', 'Lightings']})}}
+    <span></span>
+  
+    {{for key,value in sample.items():}}
+    <li class="justify-content-center align-items-center style-item-header-box style-item-box list-group-item list-group-item-info">
+      {{=key}}
+    </li>
+    {{for item_ in value:}}
+    <li class="style-item-box list-group-item list-group-item-info style-item-box">
+      <div div class="style-item-checkbox">
+        <input type="checkbox" />
+        <p>{{=item_}}</p>
+        
+        <button
+          type="button"
+          class="btn btn-link text-dark"
+          data-toggle="modal"
+          data-target="#exampleModalLong{{=item_}}"
+        >
+          <h4>...</h4>
+        </button>
+      </div>
+    </li>
+    {{pass}}
+    <span class="margin-top-tables"></span>
+    {{pass}}
+
+    <li
+      class="list-group-item note"
+      style="background-color:#EEF0F4; color: gray"
+    >
+      NOTE: <br />Please provide comment and its severity before submitting.
+    </li>
+    <div class="style-btn-container" style="border-top: none;">
+      <br>
+      <button type="button" class="btn style-btn" onclick="sent()" style="width: 200px;">Submit</button>
+    </div>
+  </ul>
+  {{include 'checklist/pop_up_room_checklist.html'}}
+
+  <div class="fixed-bottom style-btn-comment-container">
+    <button class="style-btn-comment" onclick="myFunction()">Comment</button>
+  </div>
+  <div id="myDIV" class="fixed-bottom mb-5 container" style="display: none">
+    
+      <div class="form-group">
+        <div class="container">
+          <label for="position" class="style-dropdown"
+            >Select Severity:
+            <select name="position" class="style-input" id="pos">
+              <option value="severity-1">Severity 1</option>
+              <option value="severity-2">Severity 2</option>
+              <option value="severity-3">Severity 3</option>
+            </select></label
+          >
+        </div>
+        <textarea
+          class="form-control style-comment-box mb-4"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          style="height: 200px; resize: none"
+          placeholder="Enter comment here..."
+          required
+        ></textarea>
+      </div>
+    
+  </div>
+</form>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+    function sent() {
+        alert("Checklist is successfully sent!");
+      }
+  </script>
+</div>

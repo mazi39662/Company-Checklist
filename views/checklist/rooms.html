@@ -1,0 +1,83 @@
+{{extend 'layout.html'}}
+{{include 'styles/rooms_style.html'}}
+
+<style>
+  .trans-top {
+      animation: 1s ease-out 0s 1 slideInFromTop;
+    }
+    
+    @keyframes slideInFromTop {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+</style>
+
+<div class="container triangle trans-top">
+  <h3 class="style-header">WJV Inn Branches</h3>
+
+  <div class="container-fluid style-btn-container">
+    <br />
+    <div class="container-style">
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_bankal')}}"
+      >BANKAL</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_basak')}}"
+      >BASAK</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_canduman')}}"
+      >CANDUMAN</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_casuntingan')}}"
+      >CASUNTINGAN</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_carcar')}}"
+      >CARCAR</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_consolacion')}}"
+      >CONSOLACION</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_cordova')}}"
+      >CORDOVA</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_humay2x')}}"
+      >HUMAY2X</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_liloan')}}"
+      >LILOAN</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_marigondon')}}"
+      >MARIGONDON</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_manalili')}}"
+      >MANALILI</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_naga')}}"
+      >NAGA</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_pusok')}}"
+      >PUSOK</a>
+    <a
+      class="btn btn-light style-btn"
+      href="{{=URL('checklist', 'room_checklist_ramos')}}"
+      >RAMOS</a>
+    </div>
+  </div>
+</div>
